@@ -1546,3 +1546,13 @@ public-modal .image-holder__buy-button:hover .icon-shapping-bag, public-modal .i
 .template-index .fixed-position .footer-top, .template-index .fixed-position .footer-middle{display:none;}
 .template-index .fixed-position .footer-bottom{position:fixed;bottom:0;width:100%;margin:0;padding:5px 0;background-color:rgba(255, 255, 255, 0.85);z-index:99;}
 .template-index .details-area .actions .configurable-swatch-list{display:none;}
+
+
+
+
+.main-nav.wrapper-top-menu .container {
+    width:100%;
+    margin:0;
+    max-width: 100%;
+    padding: 0;
+}
