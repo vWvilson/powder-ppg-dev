@@ -1,1 +1,74 @@
-{"sections":{"breadcrumb":{"type":"breadcrumb","settings":{}},"main":{"type":"main-product","blocks":{"214d5b8b-b472-4b7a-afcd-8c6ab046211f":{"type":"description","settings":{"title":"Description"}},"60641f86-93b4-4ea6-b50a-24fab22a8313":{"type":"size_chart","settings":{"title":"Technical Data","code":"<div class=\"tableflow-section\" data-location=\"1\" data-type=\"multi_column\"><\/div>"}},"html_tab_wj9zkH":{"type":"html_tab","settings":{"title":"Product Reviews","code":"<div id=\"prorw_core_reviews_container_data\" class=\"prorw_core_reviews_container_data\"><\/div>"}}},"block_order":["214d5b8b-b472-4b7a-afcd-8c6ab046211f","60641f86-93b4-4ea6-b50a-24fab22a8313","html_tab_wj9zkH"],"custom_css":[".metafield-multi_line_text_field {white-space: normal;}"],"settings":{"sidebar_left":false,"sidebar_style":"1","sidebar_right":false}}},"order":["breadcrumb","main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "214d5b8b-b472-4b7a-afcd-8c6ab046211f": {
+          "type": "description",
+          "settings": {
+            "title": "Description"
+          }
+        },
+        "60641f86-93b4-4ea6-b50a-24fab22a8313": {
+          "type": "size_chart",
+          "settings": {
+            "title": "Technical Data",
+            "code": "<div class=\"tableflow-section\" data-location=\"1\" data-type=\"multi_column\"></div>"
+          }
+        },
+        "html_tab_wj9zkH": {
+          "type": "html_tab",
+          "settings": {
+            "title": "Product Reviews",
+            "code": "<div id=\"prorw_core_reviews_container_data\" class=\"prorw_core_reviews_container_data\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "214d5b8b-b472-4b7a-afcd-8c6ab046211f",
+        "60641f86-93b4-4ea6-b50a-24fab22a8313",
+        "html_tab_wj9zkH"
+      ],
+      "custom_css": [
+        ".metafield-multi_line_text_field {white-space: normal;}"
+      ],
+      "settings": {
+        "sidebar_left": false,
+        "sidebar_style": "1",
+        "sidebar_right": false
+      }
+    },
+    "related_products_QarVRL": {
+      "type": "related-products",
+      "name": "Related Products",
+      "settings": {
+        "heading": "Related Products",
+        "heading_align": "center",
+        "related_type": "tags",
+        "product_limit": 4,
+        "columns": 4,
+        "bg_color": "#ffffff",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main",
+    "related_products_QarVRL"
+  ]
+}
