@@ -102,11 +102,84 @@
         "margin_top": "0px",
         "margin_bottom": "0px"
       }
+    },
+    "best_selling_colors_YDAj6R": {
+      "type": "best-selling-colors",
+      "blocks": {
+        "color_category_nrTm9L": {
+          "type": "color_category",
+          "settings": {
+            "title": "Black",
+            "collection": "enviroluxe™-powder-coatings",
+            "pill_background": "#ffffff",
+            "pill_text_color": "#111111"
+          }
+        },
+        "color_category_c6kcwH": {
+          "type": "color_category",
+          "settings": {
+            "title": "Gray",
+            "collection": "sale",
+            "pill_background": "#ffffff",
+            "pill_text_color": "#111111"
+          }
+        },
+        "color_category_zzfy4T": {
+          "type": "color_category",
+          "settings": {
+            "title": "White",
+            "collection": "durable",
+            "pill_background": "#ffffff",
+            "pill_text_color": "#111111"
+          }
+        },
+        "color_category_WirAzM": {
+          "type": "color_category",
+          "settings": {
+            "title": "Sale",
+            "collection": "made-to-order",
+            "pill_background": "#ffffff",
+            "pill_text_color": "#111111"
+          }
+        }
+      },
+      "block_order": [
+        "color_category_nrTm9L",
+        "color_category_c6kcwH",
+        "color_category_zzfy4T",
+        "color_category_WirAzM"
+      ],
+      "name": "Best Selling Colors",
+      "settings": {
+        "section_width": "page",
+        "heading": "Best Selling Colors",
+        "subheading": "",
+        "text_alignment": "center",
+        "background_color": "#f7f7f7",
+        "section_padding": "40px 0",
+        "margin_top": "0px",
+        "margin_bottom": "0px",
+        "pill_gap": 12,
+        "pill_alignment": "center",
+        "pill_background": "#ffffff",
+        "pill_text_color": "#111111",
+        "pill_border_color": "#d0d0d0",
+        "pill_active_background": "#111111",
+        "pill_active_text_color": "#ffffff",
+        "products_per_tab": 5,
+        "desktop_columns": "5",
+        "tablet_columns": "3",
+        "mobile_columns": "2",
+        "product_gap": 20,
+        "product_card_layout": "outimage_aq_onimage",
+        "image_size": "400x500"
+      }
     }
   },
   "order": [
     "fullwidth_banner",
     "custom_liquid_bxANFY",
-    "collection_blocks_rAbH7x"
+    "collection_blocks_rAbH7x",
+    "best_selling_colors_YDAj6R"
   ]
 }
