@@ -1,9 +1,19 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "fullwidth_banner": {
       "type": "fullwidth-image-banner",
       "settings": {
-        "image": "",
+        "banner_width": "full",
+        "image": "shopify://shop_images/pattsdaycode.jpg",
         "collection": "",
         "custom_link": "",
         "show_overlay": false,
@@ -23,200 +33,76 @@
         "margin_bottom": "20px"
       }
     },
-    "1495910571031": {
-      "type": "text-section",
-      "blocks": {
-        "1495910571031-0": {
-          "type": "item-block",
-          "settings": {
-            "item_title": "QUALITY PRODUCTS",
-            "item_icon": "icon-star",
-            "item_text": "From company you trust"
-          }
-        },
-        "1495910571031-1": {
-          "type": "item-block",
-          "settings": {
-            "item_title": "EASY ORDERING",
-            "item_icon": "icon-check",
-            "item_text": "We save you time"
-          }
-        },
-        "1495910571031-2": {
-          "type": "item-block",
-          "settings": {
-            "item_title": "GREAT PRICES",
-            "item_icon": "icon-money",
-            "item_text": "We save you money"
-          }
-        },
-        "b60923b5-7314-4c50-a5db-bb32a184f1c3": {
-          "type": "item-block",
-          "settings": {
-            "item_title": "BEST CUSTOMER SERVICE",
-            "item_icon": "icon-phone",
-            "item_text": "Here to answer questions"
-          }
-        }
-      },
-      "block_order": [
-        "1495910571031-0",
-        "1495910571031-1",
-        "1495910571031-2",
-        "b60923b5-7314-4c50-a5db-bb32a184f1c3"
-      ],
-      "settings": {
-        "bg_section_color": "#ffffff",
-        "margin_top": "",
-        "margin_bottom": "",
-        "section_padding": "",
-        "icon_content_color": "#0078a9",
-        "text_content_color": "#000000",
-        "border_color_block": "#bcbcbc"
-      }
-    },
-    "1597901388344": {
-      "type": "section-html",
-      "settings": {
-        "title": "FEATURED PRODUCTS",
-        "html": "<div style=\"margin-top: 20px; background-color: #fbfbfb;\"><div class=\"container\">[product title=\"FEATURED PRODUCTS\" title_align=\"center\" title_style=\"border-middle\" limit=\"100\" cols=\"4\" space=\"10\" view_mode=\"products-slider\" product_layout=\"onhover\" creative_layout=\"5\" extra_class=\"\" aspect_ratio=\"true\" img_size=\"200x200\" layout_height=\"auto\" autoplay=\"5000\" arrows=\"true\" show_product_price=\"true\" show_rating_star=\"true\" show_addtocart=\"true\" show_addtolinks=\"true\" show_grid_quickview=\"true\" arrows_side=\"true\" arrows_type=\"nav-style-4\" arrows_onhover=\"true\" positionArr=\"middle\" dots=\"false\" positionPag=\"show-dot-title-right\" handle_collection=\"cleaning-polishing\" ]</div></div>"
-      }
-    },
-    "16433956514ae25e2a": {
-      "type": "products-filter-tab",
-      "blocks": {
-        "16433956514ae25e2a-0": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "best-sellers"
-          }
-        }
-      },
-      "block_order": ["16433956514ae25e2a-0"],
-      "settings": {
-        "margin_top": "",
-        "margin_bottom": "40px",
-        "section_padding": "",
-        "tab_style": "style2",
-        "category_list_title": "",
-        "view_mode": "divider",
-        "product_layout": "onhover",
-        "aspect_ratio": true,
-        "img_size": "200x200",
-        "space_product": "8",
-        "limit": "25",
-        "columns": "5",
-        "collection_alternative_image": true,
-        "collection_product_category": false,
-        "collection_rating_star": true,
-        "collection_product_price": true,
-        "collection_show_addtocart": true,
-        "collection_grid_quickview": true,
-        "collection_show_addtolinks": true,
-        "collection_show_sale": true,
-        "collection_show_discount": true,
-        "collection_sale_label_text": "Sale",
-        "collection_grid_swatch_type": "0",
-        "autoplay": "5000",
-        "show_nav": false,
-        "nav_position": "nav-center-images-only",
-        "nav_side": "",
-        "nav_type": "nav-style-4",
-        "show_nav_hover": false,
-        "show_paging": false
-      }
-    },
-    "164317355876794344": {
-      "type": "text-section2",
-      "blocks": {
-        "164317355876794344-0": {
-          "type": "item-block",
-          "settings": {
-            "extra_class": "",
-            "column_width_desktop": "4",
-            "column_width_tablet": "6",
-            "column_width_mobile": "12",
-            "column_hidden_tablet": false,
-            "column_hidden_mobile": false,
-            "item_title": "COULD NOT FIND WHAT YOU NEED?",
-            "item_icon": "icon-earphones-alt",
-            "item_icon_position": "top",
-            "item_text": "<em>WE ARE HERE FOR YOU</em><p>We really care about you and your business. <br>Please do not hesitate to contact us.<br> We are here for you!</p>",
-            "item_link_text": "Contact PPG",
-            "item_link": "shopify://pages/contact-us"
-          }
-        },
-        "164317355876794344-1": {
-          "type": "item-block",
-          "settings": {
-            "extra_class": "",
-            "column_width_desktop": "4",
-            "column_width_tablet": "6",
-            "column_width_mobile": "12",
-            "column_hidden_tablet": false,
-            "column_hidden_mobile": false,
-            "item_title": "FAST FREE SHIPPING",
-            "item_icon": "icon-shipping",
-            "item_icon_position": "top",
-            "item_text": "<em>NO MINIMUM ORDER!</em><p>We will assign the closest location of our distribution center to your shipping address to ensure fast delivery of your orders!</p>",
-            "item_link_text": "",
-            "item_link": ""
-          }
-        },
-        "164317355876794344-2": {
-          "type": "item-block",
-          "settings": {
-            "extra_class": "",
-            "column_width_desktop": "4",
-            "column_width_tablet": "6",
-            "column_width_mobile": "12",
-            "column_hidden_tablet": false,
-            "column_hidden_mobile": false,
-            "item_title": "REGISTER TODAY!",
-            "item_icon": "icon-mail",
-            "item_icon_position": "top",
-            "item_text": "<em>BE THE FIRST TO KNOW</em><p>We love to share our exciting news and new products announcements! <br>Be the first to know! </p>",
-            "item_link_text": "Register Now",
-            "item_link": "shopify://pages/subscribe"
-          }
-        }
-      },
-      "block_order": [
-        "164317355876794344-0",
-        "164317355876794344-1",
-        "164317355876794344-2"
-      ],
-      "settings": {
-        "bg_section_color": "#ffffff",
-        "margin_top": "",
-        "margin_bottom": "20px",
-        "section_padding": "",
-        "icon_color": "",
-        "icon_font_size": "14px",
-        "border_icon_color": "",
-        "bg_icon_color": "",
-        "title_color": "",
-        "text_color": "",
-        "button_bg_color": "",
-        "button_text_color": "",
-        "border_icon_radius": "100%",
-        "icon_width": "80px"
-      }
-    },
     "custom_liquid_bxANFY": {
       "type": "custom-liquid",
       "settings": {
         "custom_liquid": "{{ shop.metafields.proviews.carousel }}"
       }
+    },
+    "collection_blocks_rAbH7x": {
+      "type": "collection-blocks",
+      "blocks": {
+        "collection_block_G7fLBh": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "small-batch-coatings"
+          }
+        },
+        "collection_block_ngYiQh": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "sale"
+          }
+        },
+        "collection_block_QzyQeX": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "enviroluxe™-powder-coatings"
+          }
+        },
+        "collection_block_dKARBV": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "made-to-order"
+          }
+        },
+        "collection_block_AHyjti": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "small-batch-coatings"
+          }
+        },
+        "collection_block_wDzBJa": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "durable"
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_G7fLBh",
+        "collection_block_ngYiQh",
+        "collection_block_QzyQeX",
+        "collection_block_dKARBV",
+        "collection_block_AHyjti",
+        "collection_block_wDzBJa"
+      ],
+      "name": "Collection Blocks",
+      "settings": {
+        "background_color": "#ffffff",
+        "section_width": "page",
+        "gap": 20,
+        "title_size": 20,
+        "title_color": "#333333",
+        "button_text_color": "#3ec7f4",
+        "margin_top": "0px",
+        "margin_bottom": "0px"
+      }
     }
   },
   "order": [
     "fullwidth_banner",
-    "1495910571031",
-    "1597901388344",
-    "16433956514ae25e2a",
-    "164317355876794344",
-    "custom_liquid_bxANFY"
+    "custom_liquid_bxANFY",
+    "collection_blocks_rAbH7x"
   ]
 }
