@@ -9,26 +9,6 @@
  */
 {
   "current": {
-    "color_schemes": {
-      "scheme_1": {
-        "settings": {
-          "background": "#FFFFFF",
-          "text": "#666666",
-          "button": "#0078a9",
-          "button_label": "#FFFFFF",
-          "secondary_button_label": "#0078a9"
-        }
-      },
-      "scheme_2": {
-        "settings": {
-          "background": "#000000",
-          "text": "#FFFFFF",
-          "button": "#0078a9",
-          "button_label": "#FFFFFF",
-          "secondary_button_label": "#0078a9"
-        }
-      }
-    },
     "boxed": "wide",
     "out_of_box_background_color_for_boxed_version": "#ff7c13",
     "checkbox_background_image": false,
@@ -153,7 +133,7 @@
     "header_search_background_color": "#ffffff",
     "header_search_text_color": "#666666",
     "header_search_border_color": "#bcbcbc",
-    "header_custom_text": "<div class=\"header-contact\">\n<div class=\"porto-sicon-box text-left ml-5 mr-4 d-none d-lg-block d-lg-flex\" style=\"align-items: center;\">\n<!--<img class=\"img-icon lazypreload lazyloaded\" alt=\"\" src=\"//cdn.shopify.com/s/files/1/1612/9747/files/shop2_header_phone.png\" width=\"30\" height=\"30\" style=\"margin-right: 8px;display:block;\">\n<span style=\"color: #f4f6f8;font-size:12px;line-height:12px;font-weight: 600;margin: 0 0 0;\"><span style=\"font-family: Poppins;\">Questions? CALL PPG</span><br><b style=\"color:#fff;font-size:18px;font-weight:700;display:block;line-height:18px;margin-top: 3px;\"><a href=\"tel:888-977-4762\">1-888-9PPGPMC</a></b></span>\n</div>--> \n<a class=\"my-account\" href=\"/account\"><i class=\"icon-user-2\"></i></a><a class=\"wishlist-popup mr-1\" href=\"javascript:void(0)\"><i class=\"icon-wishlist-2\"></i></a>\n</div>\n</div>",
+    "header_custom_text": "<div class=\"header-contact\">\n    <div class=\"porto-sicon-box text-left ml-5 mr-4 d-none d-lg-block d-lg-flex\" style=\"align-items: center;\">\n        <!--<img class=\"img-icon lazypreload lazyloaded\" alt=\"\" src=\"//cdn.shopify.com/s/files/1/1612/9747/files/shop2_header_phone.png\" width=\"30\" height=\"30\" style=\"margin-right: 8px;display:block;\">\n<span style=\"color: #f4f6f8;font-size:12px;line-height:12px;font-weight: 600;margin: 0 0 0;\"><span style=\"font-family: Poppins;\">Questions? CALL PPG</span><br><b style=\"color:#fff;font-size:18px;font-weight:700;display:block;line-height:18px;margin-top: 3px;\"><a href=\"tel:888-977-4762\">1-888-9PPGPMC</a></b></span>\n</div>-->\n        <a class=\"my-account\" href=\"/account\"><img src=\"https://cdn.shopify.com/s/files/1/0978/2470/2786/files/sentiment-no-eyes_430x.svg?v=1772475793#\" alt=\"\">\n        <span>Log In</span>\n        </a>\n        <a class=\"wishlist-popup mr-1\" href=\"javascript:void(0)\"><img src=\"https://cdn.shopify.com/s/files/1/0978/2470/2786/files/favorite_430x.svg?v=1772475792#\" alt=\"\">\n        <span>Favorites</span>\n        </a>\n    </div>\n</div>",
     "header_custom_text2": "",
     "header_category_text": "SHOP BY CATEGORY",
     "custom_block_2": "<!--<div class=\"custom-menu-block\">\n    <a href=\"#\">FASHION PROMO</a>\n    <a href=\"#\">WOMAN SHOES</a>\n    <a href=\"#\">50% OFF FASHION</a>\n</div>-->",
@@ -1083,7 +1063,10 @@
           },
           "1521143403132": {
             "type": "menu_item",
-            "settings": { "title": "My Account", "button_link": "/account" }
+            "settings": {
+              "title": "My Account",
+              "button_link": "/account"
+            }
           },
           "1521143416189": {
             "type": "menu_item",
@@ -1095,15 +1078,22 @@
           },
           "1521143430837": {
             "type": "menu_wishlist",
-            "settings": { "title": "My Wishlist" }
+            "settings": {
+              "title": "My Wishlist"
+            }
           },
           "1597801894588": {
             "type": "menu_item",
-            "settings": { "title": "Cart", "button_link": "/cart" }
+            "settings": {
+              "title": "Cart",
+              "button_link": "/cart"
+            }
           },
           "1521143443349": {
             "type": "menu_login",
-            "settings": { "title": "Login" }
+            "settings": {
+              "title": "Login"
+            }
           }
         },
         "block_order": [
@@ -1118,22 +1108,31 @@
       },
       "search-by-category": {
         "type": "search-by-category",
-        "settings": { "select_collection": "1" }
+        "settings": {
+          "select_collection": "1"
+        }
       },
       "product-page-tab": {
         "type": "product-page-tab",
         "blocks": {
           "1521493659625": {
             "type": "description",
-            "settings": { "title": "Description" }
+            "settings": {
+              "title": "Description"
+            }
           },
           "1521493661763": {
             "type": "review",
-            "settings": { "title": "Reviews", "use_count_reviews": true }
+            "settings": {
+              "title": "Reviews",
+              "use_count_reviews": true
+            }
           },
           "1521493664241": {
             "type": "additional",
-            "settings": { "title": "Additional Information" }
+            "settings": {
+              "title": "Additional Information"
+            }
           },
           "1521493666107": {
             "type": "size_chart",
@@ -1170,7 +1169,10 @@
               "show_count": true
             }
           },
-          "1585297446488": { "type": "filter", "settings": {} },
+          "1585297446488": {
+            "type": "filter",
+            "settings": {}
+          },
           "1585297450358": {
             "type": "products",
             "settings": {
@@ -1193,7 +1195,9 @@
           "1585297450358",
           "1585297453679"
         ],
-        "settings": { "sidebar_style": "1" }
+        "settings": {
+          "sidebar_style": "1"
+        }
       },
       "sidebar-right": {
         "type": "sidebar-right",
@@ -1224,7 +1228,11 @@
             }
           }
         },
-        "block_order": ["1585297495240", "1585297498360", "1585297503428"],
+        "block_order": [
+          "1585297495240",
+          "1585297498360",
+          "1585297503428"
+        ],
         "settings": {}
       },
       "header-notice": {
@@ -1241,8 +1249,13 @@
             }
           }
         },
-        "block_order": ["1596513555823"],
-        "settings": { "show_button": true, "expires": "1" }
+        "block_order": [
+          "1596513555823"
+        ],
+        "settings": {
+          "show_button": true,
+          "expires": "1"
+        }
       },
       "shortcode-pr": {
         "type": "shortcode-pr",
@@ -1305,7 +1318,9 @@
             }
           }
         },
-        "block_order": ["1597311639179"],
+        "block_order": [
+          "1597311639179"
+        ],
         "settings": {
           "title": "Shortcode Collection",
           "title_border_style": "border-bottom",
@@ -1392,7 +1407,10 @@
             }
           }
         },
-        "block_order": ["1597047213133", "slideshow_mpmYcr"],
+        "block_order": [
+          "1597047213133",
+          "slideshow_mpmYcr"
+        ],
         "settings": {
           "margin_top": "20px",
           "margin_bottom": "0px",
@@ -1405,12 +1423,42 @@
       "shortcode-brands": {
         "type": "shortcode-brands",
         "blocks": {
-          "1597366181970": { "type": "image", "settings": { "link": "#" } },
-          "1597366187689": { "type": "image", "settings": { "link": "#" } },
-          "1597366196384": { "type": "image", "settings": { "link": "#" } },
-          "1597366198856": { "type": "image", "settings": { "link": "#" } },
-          "1597366200946": { "type": "image", "settings": { "link": "#" } },
-          "1597366203311": { "type": "image", "settings": { "link": "#" } }
+          "1597366181970": {
+            "type": "image",
+            "settings": {
+              "link": "#"
+            }
+          },
+          "1597366187689": {
+            "type": "image",
+            "settings": {
+              "link": "#"
+            }
+          },
+          "1597366196384": {
+            "type": "image",
+            "settings": {
+              "link": "#"
+            }
+          },
+          "1597366198856": {
+            "type": "image",
+            "settings": {
+              "link": "#"
+            }
+          },
+          "1597366200946": {
+            "type": "image",
+            "settings": {
+              "link": "#"
+            }
+          },
+          "1597366203311": {
+            "type": "image",
+            "settings": {
+              "link": "#"
+            }
+          }
         },
         "block_order": [
           "1597366181970",
@@ -1440,15 +1488,22 @@
         "blocks": {
           "9de4f9a3-73f2-4a30-9d5f-da2d7a41841a": {
             "type": "menu_account",
-            "settings": { "title": "Account" }
+            "settings": {
+              "title": "Account"
+            }
           },
           "aab3ffea-e44f-4046-98c1-f1d9ed491fd5": {
             "type": "menu_cart",
-            "settings": { "title": "Cart", "icon": "icon-shopping-cart" }
+            "settings": {
+              "title": "Cart",
+              "icon": "icon-shopping-cart"
+            }
           },
           "b5e22ef9-7e50-46cf-83ca-6d5f7163b0ed": {
             "type": "menu_wishlist",
-            "settings": { "title": "My Wishlist" }
+            "settings": {
+              "title": "My Wishlist"
+            }
           }
         },
         "block_order": [
@@ -1456,7 +1511,9 @@
           "aab3ffea-e44f-4046-98c1-f1d9ed491fd5",
           "b5e22ef9-7e50-46cf-83ca-6d5f7163b0ed"
         ],
-        "settings": { "enable": true }
+        "settings": {
+          "enable": true
+        }
       },
       "16431579973a541719": {
         "type": "section-html",
@@ -1468,11 +1525,16 @@
       },
       "shortcode-find-products": {
         "type": "shortcode-find-products",
-        "settings": { "title": "FIND A PRODUCT" }
+        "settings": {
+          "title": "FIND A PRODUCT"
+        }
       },
       "shortcode-article-widget": {
         "type": "shortcode-article-widget",
-        "settings": { "blog": "", "limit": "4" }
+        "settings": {
+          "blog": "",
+          "limit": "4"
+        }
       },
       "shortcode-testimonials": {
         "type": "shortcode-testimonials",
@@ -1667,14 +1729,20 @@
       },
       "faq-page-order": {
         "type": "faq-page-order",
-        "settings": { "title": "ORDERS AND RETURNS", "faq_order_enable": true }
+        "settings": {
+          "title": "ORDERS AND RETURNS",
+          "faq_order_enable": true
+        }
       },
       "16433956514ae25e2a": {
         "type": "products-filter-tab",
         "blocks": {
           "16433956514ae25e2a-0": {
             "type": "collection",
-            "settings": { "title": "", "collection": "best-sellers" }
+            "settings": {
+              "title": "",
+              "collection": "best-sellers"
+            }
           },
           "collection_V7pPM6": {
             "type": "collection",
@@ -1687,7 +1755,10 @@
           "b6c41f09-521c-4ec6-a091-23c53c091ab7": {
             "type": "collection",
             "disabled": true,
-            "settings": { "title": "Semco Products", "collection": "semco" }
+            "settings": {
+              "title": "Semco Products",
+              "collection": "semco"
+            }
           },
           "collection_8yEDDL": {
             "type": "collection",
@@ -1771,9 +1842,31 @@
       "164317355876794344",
       "custom_liquid_bxANFY",
       "section_main_gBYCrp"
-    ]
+    ],
+    "color_schemes": {
+      "scheme_1": {
+        "settings": {
+          "background": "#ffffff",
+          "text": "#666666",
+          "button": "#0078a9",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#0078a9"
+        }
+      },
+      "scheme_2": {
+        "settings": {
+          "background": "#000000",
+          "text": "#ffffff",
+          "button": "#0078a9",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#0078a9"
+        }
+      }
+    }
   },
-  "presets": { "Default": {} },
+  "presets": {
+    "Default": {}
+  },
   "platform_customizations": {
     "custom_css": [
       "/* Tax Exempt - Desktop screens */@media screen and (min-width: 1024px) {.en-tx--container-inner {width: 50%; margin-left: auto; margin-right: auto; }}",
