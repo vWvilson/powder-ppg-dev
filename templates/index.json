@@ -174,12 +174,77 @@
         "product_card_layout": "outimage_aq_onimage",
         "image_size": "400x500"
       }
+    },
+    "two_column_content_q68xX9": {
+      "type": "two-column-content",
+      "blocks": {
+        "headline_XL4tNJ": {
+          "type": "headline",
+          "settings": {
+            "headline": "RAL Color Sample Panel Deck is Now Available",
+            "column": "right",
+            "text_alignment": "left"
+          }
+        },
+        "text_L4rwp6": {
+          "type": "text",
+          "settings": {
+            "body": "<p>Purchase 191 RAL system standard colors in our sample deck coated with PPG ENVIROCRON® Ultra-Durable Powder Coating for your color matching needs.</p>",
+            "column": "right",
+            "text_alignment": "left"
+          }
+        },
+        "button_rYriA3": {
+          "type": "button",
+          "settings": {
+            "label": "Get the sample deck",
+            "link": "",
+            "open_in_new_tab": false,
+            "column": "right",
+            "text_alignment": "left",
+            "button_style": "primary"
+          }
+        },
+        "image_k8cBFA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/sample-panel.jpg",
+            "alt_text": "",
+            "image_width": 1000,
+            "column": "left"
+          }
+        }
+      },
+      "block_order": [
+        "headline_XL4tNJ",
+        "text_L4rwp6",
+        "button_rYriA3",
+        "image_k8cBFA"
+      ],
+      "custom_css": [
+        "h2 {color: #0078a9; font-size: 22px;}"
+      ],
+      "name": "Two column content",
+      "settings": {
+        "section_width": "page",
+        "background_color": "#ffffff",
+        "section_padding": "60px 0",
+        "column_gap": 40,
+        "vertical_alignment": "stretch",
+        "margin_top": "0px",
+        "margin_bottom": "0px",
+        "primary_button_bg": "#111111",
+        "primary_button_text": "#ffffff",
+        "secondary_button_text": "#111111",
+        "image_radius": 0
+      }
     }
   },
   "order": [
     "fullwidth_banner",
     "custom_liquid_bxANFY",
     "collection_blocks_rAbH7x",
-    "best_selling_colors_YDAj6R"
+    "best_selling_colors_YDAj6R",
+    "two_column_content_q68xX9"
   ]
 }
