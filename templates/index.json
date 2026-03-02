@@ -95,6 +95,9 @@
         "title_size": 20,
         "title_color": "#333333",
         "button_text_color": "#3ec7f4",
+        "cta_url": "shopify://collections/all",
+        "cta_bg_color": "#000000",
+        "cta_text_color": "#ffffff",
         "margin_top": "0px",
         "margin_bottom": "0px"
       }
