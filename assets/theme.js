@@ -855,10 +855,12 @@ function removeWishlist (event){
     if(wishlistCount > 0){
       $('#wishlistCount').html('(' + wishlistCount + ')');
       $('.wishlistCount').html('(' + wishlistCount + ')');
+      $('.header-wishlist-count-badge').html(wishlistCount).show();
     } else {
       $('#wishlistCount').html('(0)');
       $('.wishlistCount').html('(0)');
-    } 
+      $('.header-wishlist-count-badge').hide();
+    }
     $(event.target).parents('tr').remove();
     var alertTemplate = '<div class="message alert alert-success">'+ $(event.target).data("productTitle") +' '+wishlistData.remove+'</div>';
     $( "#wishlistAlert").html(alertTemplate);
@@ -1416,6 +1418,7 @@ var SW = SW || {};
         wishlistCount = wishlistArr.length;
         if(wishlistCount > 0) {
           $('#header-wishlist .wishlistCount').html('('+wishlistCount+')');
+          $('.header-wishlist-count-badge').html(wishlistCount).show();
         }
       }
 
@@ -1505,6 +1508,7 @@ var SW = SW || {};
 
             $('#header-wishlist .wishlistCount').html('('+wishlistCount+')');
             $('#wishlistCount').html('(' + wishlistCount + ')');
+            $('.header-wishlist-count-badge').html(wishlistCount).show();
             var alertTemplate = '<div class="message alert alert-success">'+ product.title +' '+wishlistData.item_added+'</div>';
             $( "#wishlistAlert").html(alertTemplate);
             SW.collection.checkWishlist();

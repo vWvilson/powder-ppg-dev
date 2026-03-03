@@ -35,7 +35,7 @@
 .products .product-col .description{margin-top:1.5em;}
 .products .product-col .price{display:block;font-size:1.125rem;margin-bottom:1rem;line-height:1;font-weight:600;}
 .products .product-col .add_to_cart_button{font-weight:400;padding:0 1em;}
-.products .product-col .add-links{display:inline-block;position:relative;margin-bottom:1.0714em;}
+.products .product-col .add-links{display:flex;position:relative;margin-bottom:1.0714em;}
 .products .product-col .add-links .tooltip-inner{white-space:nowrap;}
 .products .product-col .add-links .add_to_cart_button,.products .product-col .add-links .add_to_cart_read_more{transition:none;}
 .products .product-col .add-links .added_to_cart{display:none;}

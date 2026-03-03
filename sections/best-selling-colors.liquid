@@ -103,6 +103,15 @@
     border: 1px dashed rgba(17, 17, 17, 0.2);
     border-radius: 8px;
   }
+  .best-selling-colors__grid .product .add-links-wrap {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .best-selling-colors__grid .product:hover .add-links-wrap {
+    visibility: visible;
+    opacity: 1;
+  }
 {%- endstyle -%}
 
 <section

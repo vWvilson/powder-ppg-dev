@@ -1550,6 +1550,22 @@ public-modal .image-holder__buy-button:hover .icon-shapping-bag, public-modal .i
 
 
 
+span.header-wishlist-count-badge {
+  display: none;
+  position: absolute;
+  top: -6px;
+  right: 37px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  background-color: #3EC7F4;
+  color: #000;
+  font-size: 10px !important;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  padding: 0 3px;
+}
 .main-nav.wrapper-top-menu .container {
     width:100%;
     margin:0;
