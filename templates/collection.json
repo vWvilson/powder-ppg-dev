@@ -1,1 +1,82 @@
-{"sections":{"breadcrumb":{"type":"breadcrumb","settings":{}},"product-grid":{"type":"main-collection-product","blocks":{"3ed92b5d-8259-48e9-91b4-7f47ec3d6028":{"type":"filter","settings":{}},"27730410-5f65-46ed-b076-8895a5043877":{"type":"products","settings":{"title":"Featured","collection":"dispensing-tools","limit":"5"}}},"block_order":["3ed92b5d-8259-48e9-91b4-7f47ec3d6028","27730410-5f65-46ed-b076-8895a5043877"],"settings":{"sidebar_left":true,"sidebar_style":"2","sidebar_right":false,"collection_products_count":"36","collection_view_mode":"grid","product_layout":"onhover","collection_columns":"3","space_product":"10","collection_alternative_image":true,"collection_aspect_ratio":"1","collection_ratio_width":"400","collection_ratio_height":"400","collection_product_category":true,"collection_rating_star":true,"collection_product_price":true,"collection_show_addtocart":true,"collection_grid_quickview":true,"collection_show_addtolinks":true,"collection_show_sale":true,"collection_show_discount":true,"collection_sale_label_text":"Sale","collection_grid_swatch_type":"1","porto_settings_category_grid_one_column_mobile":false,"collection_infinite_scrolling":true,"collection_infinite_mode":"byscroll","collection_filters_enable":true,"collection_sorting_enable":true}},"custom_liquid_zLYXmz":{"type":"custom-liquid","custom_css":[".prorw-featured-container h5 {font-size: 14px; font-weight: 500; color: #0078a9;}",".prorw-featured-container p.author-name {color: #0078a9;}"],"settings":{"custom_liquid":"{{ shop.metafields.proviews.carousel }}"}}},"order":["breadcrumb","product-grid","custom_liquid_zLYXmz"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {}
+    },
+    "product-grid": {
+      "type": "main-collection-product",
+      "blocks": {
+        "3ed92b5d-8259-48e9-91b4-7f47ec3d6028": {
+          "type": "filter",
+          "settings": {}
+        },
+        "27730410-5f65-46ed-b076-8895a5043877": {
+          "type": "products",
+          "settings": {
+            "title": "Featured",
+            "collection": "dispensing-tools",
+            "limit": "5"
+          }
+        }
+      },
+      "block_order": [
+        "3ed92b5d-8259-48e9-91b4-7f47ec3d6028",
+        "27730410-5f65-46ed-b076-8895a5043877"
+      ],
+      "settings": {
+        "sidebar_left": true,
+        "sidebar_style": "2",
+        "sidebar_right": false,
+        "collection_products_count": "36",
+        "collection_view_mode": "grid",
+        "product_layout": "onhover",
+        "collection_columns": "3",
+        "space_product": "10",
+        "collection_alternative_image": true,
+        "collection_aspect_ratio": "1",
+        "collection_ratio_width": "400",
+        "collection_ratio_height": "400",
+        "collection_product_category": true,
+        "collection_rating_star": false,
+        "collection_product_price": true,
+        "collection_show_addtocart": true,
+        "collection_grid_quickview": true,
+        "collection_show_addtolinks": true,
+        "collection_show_sale": true,
+        "collection_show_discount": true,
+        "collection_sale_label_text": "Sale",
+        "collection_grid_swatch_type": "1",
+        "porto_settings_category_grid_one_column_mobile": false,
+        "collection_infinite_scrolling": true,
+        "collection_infinite_mode": "byscroll",
+        "collection_filters_enable": true,
+        "collection_sorting_enable": true
+      }
+    },
+    "custom_liquid_zLYXmz": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".prorw-featured-container h5 {font-size: 14px; font-weight: 500; color: #0078a9;}",
+        ".prorw-featured-container p.author-name {color: #0078a9;}"
+      ],
+      "settings": {
+        "custom_liquid": "{{ shop.metafields.proviews.carousel }}"
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "product-grid",
+    "custom_liquid_zLYXmz"
+  ]
+}
