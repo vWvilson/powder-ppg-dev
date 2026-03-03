@@ -81,9 +81,10 @@
   .best-selling-colors__grid {
     --cols: {{ section.settings.desktop_columns }};
     --gap: {{ section.settings.product_gap }}px;
-    display: grid;
+    display: grid !important;
     gap: var(--gap);
     grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+    flex-wrap: unset;
   }
   @media (max-width: 991px) {
     .best-selling-colors__grid {
@@ -158,11 +159,19 @@
             aria-hidden="{%- if forloop.first -%}false{%- else -%}true{%- endif -%}"
             {{ block.shopify_attributes }}>
             {%- if color_collection != blank and color_collection.all_products_count > 0 -%}
-              <div class="best-selling-colors__grid">
+              <div class="best-selling-colors__grid products">
                 {%- assign view_mode = 'grid' -%}
                 {%- assign product_layout = section.settings.product_card_layout -%}
                 {%- assign layout_class = 'product-' | append: product_layout -%}
                 {%- assign pt_layout = product_layout -%}
+                {%- case product_layout -%}
+                  {%- when 'onhover' -%}
+                    {%- assign layout_class = 'product-default show-links-hover' -%}
+                  {%- when 'outimage_aq_onimage' -%}
+                    {%- assign layout_class = 'product-outimage_aq_onimage' -%}
+                  {%- when 'outimage_aq_onimage2' -%}
+                    {%- assign layout_class = 'product-outimage_aq_onimage with-padding' -%}
+                {%- endcase -%}
                 {%- assign aspect_ratio = false -%}
                 {%- assign img_size = section.settings.image_size -%}
                 {%- assign space_product = section.settings.product_gap -%}
@@ -186,6 +195,17 @@
                 {%- endif -%}
                 {%- capture image_size -%}{{ image_width }}x{{ image_height }}{%- endcapture -%}
                 {%- assign pt = 100 | divided_by: ar | append: '%' -%}
+                {%- assign show_product_price = true -%}
+                {%- assign show_grid_quickview = true -%}
+                {%- assign show_product_category = true -%}
+                {%- assign show_rating_star = false -%}
+                {%- assign alternative_image = true -%}
+                {%- assign grid_swatch_type = '1' -%}
+                {%- assign show_sale = true -%}
+                {%- assign show_discount = true -%}
+                {%- assign sale_label_text = 'Sale' -%}
+                {%- assign show_addtocart = true -%}
+                {%- assign show_addtolinks = true -%}
 
                 {%- for product in color_collection.products limit: section.settings.products_per_tab -%}
                   {% include 'pt-product-loop' %}
@@ -439,11 +459,14 @@
         "type": "select",
         "id": "product_card_layout",
         "label": "Product card layout",
-        "default": "default",
+        "default": "onhover",
         "options": [
           {
+            "value": "onhover",
+            "label": "Default (hover)"
+          }, {
             "value": "default",
-            "label": "Default"
+            "label": "Default (static)"
           }, {
             "value": "outimage_aq_onimage",
             "label": "Overlay image"
