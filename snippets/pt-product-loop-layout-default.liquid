@@ -1,86 +1,76 @@
 <div class="product-inner">
-  <div class="product-image"> 
-    <a href="{{ product.url | within: collection }}">
-      {%- if variant_tmp.compare_at_price > variant_tmp.price -%}
-      <div class="labels">
-        {% if show_discount != blank or show_sale != blank %}
-        <div class="onsale">
-          {%- if show_discount != blank -%}
-          {%- if sale_label_text != '' -%}
-          <span class="sale-label"> 
-            {{ sale_label_text }} 
-          </span>
-          {%- endif -%}
-           -{{ variant_tmp.compare_at_price | minus: variant_tmp.price | times: 100.0 | divided_by: variant_tmp.compare_at_price | money_without_currency | times: 100 | remove: '.0'}}%
-          {%- else -%}
-          {%- if show_sale != blank -%}
-          <span class="sale-label"> 
-            {{ sale_label_text }} 
-          </span>
-          {%- endif -%}
+  <div class="product-image-wrapper">
+    <div class="product-image">
+      <a href="{{ product.url | within: collection }}">
+        {%- if variant_tmp.compare_at_price > variant_tmp.price -%}
+        <div class="labels">
+          {% if show_discount != blank or show_sale != blank %}
+          <div class="onsale">
+            {%- if show_discount != blank -%}
+            {%- if sale_label_text != '' -%}
+            <span class="sale-label">
+              {{ sale_label_text }}
+            </span>
+            {%- endif -%}
+             -{{ variant_tmp.compare_at_price | minus: variant_tmp.price | times: 100.0 | divided_by: variant_tmp.compare_at_price | money_without_currency | times: 100 | remove: '.0'}}%
+            {%- else -%}
+            {%- if show_sale != blank -%}
+            <span class="sale-label">
+              {{ sale_label_text }}
+            </span>
+            {%- endif -%}
+            {%- endif -%}
+          </div>
           {%- endif -%}
         </div>
         {%- endif -%}
-      </div>
-      {%- endif -%}
-      <div class="inner {% if product.images[1] and alternative_image != blank %}img-effect{% endif %}">
-        <img data-src="{{ product.featured_image.src | img_url: image_size, crop: 'center' }}" alt="{{ product.featured_image.alt | escape }}" class="img-responsive main lazyload" style="padding-top: {{pt}};">
-        {% if product.images[1] and alternative_image != blank %}
-        <img data-src="{{ product.images[1].src | img_url: image_size, crop: 'center' }}" alt="{{ product.images[1].alt | escape }}" class="hover-image img-responsive lazyload" style="padding-top: {{pt}};">
-        {% endif %}
-      </div>
-      {% if product.description contains '[countdown]' %}
-      <div class="sale-product-daily-deal"> 
-        <div class="porto_countdown   porto-cd-s1">
-          {% assign count_down_first = product.description | split:'[/countdown]' | first %}
-          {% assign count_down_final = count_down_first | split:'[countdown]' | last %}
-          <div class="bottom-product-dailydeal bottom-home-dailydeal">
-            <div class="product-date" data-date="{{ count_down_final }}"></div>
+        <div class="inner {% if product.images[1] and alternative_image != blank %}img-effect{% endif %}">
+          <img data-src="{{ product.featured_image.src | img_url: image_size, crop: 'center' }}" alt="{{ product.featured_image.alt | escape }}" class="img-responsive main lazyload" style="padding-top: {{pt}};">
+          {% if product.images[1] and alternative_image != blank %}
+          <img data-src="{{ product.images[1].src | img_url: image_size, crop: 'center' }}" alt="{{ product.images[1].alt | escape }}" class="hover-image img-responsive lazyload" style="padding-top: {{pt}};">
+          {% endif %}
+        </div>
+        {% if product.description contains '[countdown]' %}
+        <div class="sale-product-daily-deal">
+          <div class="porto_countdown   porto-cd-s1">
+            {% assign count_down_first = product.description | split:'[/countdown]' | first %}
+            {% assign count_down_final = count_down_first | split:'[countdown]' | last %}
+            <div class="bottom-product-dailydeal bottom-home-dailydeal">
+              <div class="product-date" data-date="{{ count_down_final }}"></div>
+            </div>
           </div>
         </div>
-      </div>
-      {% endif %}
-    </a>
-    <div class="loader-container" style="display: none;"><div class="loader"><i class="porto-ajax-loader"></i></div></div> 
-    <div class="links-on-image">
-      <div class="add-links-wrap">
-        <div class="add-links clearfix">
-        {%- if show_grid_quickview != blank -%} 
-        <a href="{{product.url | split: '?' | first }}?view=quickview" class="action-list quickview-icon quickview"> 
-          <span>{{ 'collections.general.quickview' | t }}</span>
-        </a> 
-        {%- endif -%}
-        </div>
-      </div>
+        {% endif %}
+      </a>
+      <div class="loader-container" style="display: none;"><div class="loader"><i class="porto-ajax-loader"></i></div></div>
     </div>
-  </div>
-  <div class="product-content">  
+    <div class="product-content">
     {%- if show_product_category != blank -%}
     <span class="category-list">
       {%- for collection in product.collections limit:2 -%}
       {{ collection.title | link_to: collection.url }}{%- if forloop.last == false -%},&nbsp;{%- endif -%}
-      {%- endfor -%} 
-    </span>  
-    {%- endif -%} 
+      {%- endfor -%}
+    </span>
+    {%- endif -%}
     <a class="product-loop-title" href="{{ product.url | within: collection }}">
-      <h3 class="shopify-loop-product__title">  
-        {{ product.title }} 
-      </h3> 
+      <h3 class="shopify-loop-product__title">
+        {{ product.title }}
+      </h3>
     </a>
-    {% if show_rating_star != blank %} 
+    {% if show_rating_star != blank %}
     <div class="rating-wrap">
       <div class="rating-content">
-        <span class="prorw_preview_badge_setup" id="prorw_preview_badge_id_{{ product.id }}" data-product-id="{{ product.id }}" data-average-ratings="{% if product.metafields.proviews.averageRatings != blank %}{{product.metafields.proviews.averageRatings}}{% else %}0{% endif %}" data-count="{% if product.metafields.proviews.totalReviewCount != blank %}{{product.metafields.proviews.totalReviewCount}}{% else %}0{% endif %}"></span>        
+        <span class="prorw_preview_badge_setup" id="prorw_preview_badge_id_{{ product.id }}" data-product-id="{{ product.id }}" data-average-ratings="{% if product.metafields.proviews.averageRatings != blank %}{{product.metafields.proviews.averageRatings}}{% else %}0{% endif %}" data-count="{% if product.metafields.proviews.totalReviewCount != blank %}{{product.metafields.proviews.totalReviewCount}}{% else %}0{% endif %}"></span>
         <!--<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>-->
       </div>
     </div>
-    {% endif %} 
+    {% endif %}
     {%- if settings.product_sku -%}
     {%- assign current_variant = product.selected_or_first_available_variant -%}
     <div class="product-sku">
       <span>{{ 'products.product.sku' | t }} {% assign current_variant = product.selected_or_first_available_variant %} <span class="variant-sku">{{ current_variant.sku }}</span>
     </div>
-    {%- endif -%} 
+    {%- endif -%}
     <div class="description">
       {%- assign description = product.description -%}
       {%- if product.description contains '[shortdesc]' -%}
@@ -97,28 +87,28 @@
       {%- assign description = description | split:'[/additional]' | last -%}
       {%- endif -%}
       {%- endif -%}
-      {%- assign description = description | strip_html | truncatewords: 30 -%} 
-      {{ description }} 
-    </div> 
-    {%- if show_product_price != blank -%} 
-    <span class="price"> 
+      {%- assign description = description | strip_html | truncatewords: 30 -%}
+      {{ description }}
+    </div>
+    {%- if show_product_price != blank -%}
+    <span class="price">
       {%- if label -%}
         {%- if variant_tmp.compare_at_price > variant_tmp.price -%}
-        <span class="sale-text">  
-          {{ label }} 
+        <span class="sale-text">
+          {{ label }}
           -{{ variant_tmp.compare_at_price | minus: variant_tmp.price | times: 100.0 | divided_by: variant_tmp.compare_at_price | money_without_currency | times: 100 | remove: '.0'}}%</span>
         {%- endif -%}
       {%- endif -%}
       <span class="price-wrapper">
-        {%- if on_sale -%} 
-        <del><span class="shopify-Price-amount amount"><span class="money">{{ product.compare_at_price | money }}</span></span></del> 
+        {%- if on_sale -%}
+        <del><span class="shopify-Price-amount amount"><span class="money">{{ product.compare_at_price | money }}</span></span></del>
         <ins><span class="shopify-Price-amount amount"><span class="money">{{ product.price | money }}</span></span></ins>
         {%- else -%}
         <span class="shopify-Price-amount amount"><span class="money">{{ product.price | money }}</span></span>
-        {%- endif -%} 
+        {%- endif -%}
       </span>
     </span>
-    {%- endif -%}  
+    {%- endif -%}
     {%- if product.options.size > 1 -%}
     {%- if grid_swatch_type == '1' or grid_swatch_type == '2' -%}
     <div class="variations">
@@ -158,8 +148,21 @@
         {% endfor %}
       </ul>
     </div>
-    {%- endif -%} 
     {%- endif -%}
-    {%- include 'pt-add-link-wrap' -%} 
+    {%- endif -%}
+    </div>
+    <div class="links-on-image">
+      <div class="add-links-wrap">
+        <div class="add-links clearfix">
+        {%- if show_grid_quickview != blank -%}
+        <a href="{{product.url | split: '?' | first }}?view=quickview" class="action-list quickview-icon quickview">
+          <img src="{{ 'expand.svg' | asset_url }}" alt="" aria-hidden="true">
+          <span>{{ 'collections.general.quickview' | t }}</span>
+        </a>
+        {%- endif -%}
+        </div>
+      </div>
+    </div>
   </div>
+  {%- include 'pt-add-link-wrap' -%}
 </div>
