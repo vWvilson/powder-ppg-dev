@@ -171,7 +171,7 @@
         "tablet_columns": "3",
         "mobile_columns": "2",
         "product_gap": 20,
-        "product_card_layout": "outimage_aq_onimage",
+        "product_card_layout": "default",
         "image_size": "400x500"
       }
     },
