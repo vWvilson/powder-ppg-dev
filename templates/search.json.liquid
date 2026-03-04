@@ -1,0 +1,26 @@
+{% layout none %}
+{%- paginate search.results by 10 -%}
+{%- for item in search.results -%}
+  {%- if item.object_type == 'product' -%}
+    <a href="{{ item.url }}" class="autocomplete-suggestion">
+      {%- if item.featured_image -%}
+        <img class="suggestion-thumb" src="{{ item.featured_image | image_url: width: 90 }}" alt="{{ item.title | escape }}">
+      {%- endif -%}
+      <div>
+        <div class="suggestion-title">{{ item.title }}</div>
+        <div class="suggestion-price">
+          {%- if item.compare_at_price > item.price -%}
+            <del>{{ item.compare_at_price | money }}</del>
+            <ins>{{ item.price | money }}</ins>
+          {%- else -%}
+            {{ item.price | money }}
+          {%- endif -%}
+        </div>
+      </div>
+    </a>
+  {%- endif -%}
+{%- endfor -%}
+{%- if search.results_count > 10 -%}
+  <a href="/search?type=product&q={{ search.terms | url_encode }}" class="view-all-products">View all {{ search.results_count }} results</a>
+{%- endif -%}
+{%- endpaginate -%}

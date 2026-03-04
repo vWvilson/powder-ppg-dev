@@ -2,6 +2,152 @@
   "sections": {
     "main": {
       "type": "contact-form-custom",
+      "blocks": {
+        "header": {
+          "type": "header_columns",
+          "settings": {
+            "heading": "Contact Us",
+            "text": "<p>Please visit our <a href='/faq'>FAQ page</a> before submitting an inquiry.</p>",
+            "right_html": ""
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {}
+        },
+        "field_first_name": {
+          "type": "field_text",
+          "settings": {
+            "group_label": "Name *",
+            "label": "First name",
+            "name_key": "First Name",
+            "placeholder": "First Name*",
+            "input_type": "text",
+            "autocomplete": "given-name",
+            "required": true,
+            "half_width": true
+          }
+        },
+        "field_last_name": {
+          "type": "field_text",
+          "settings": {
+            "label": "Last name",
+            "name_key": "Last name",
+            "placeholder": "Last name*",
+            "input_type": "text",
+            "autocomplete": "family-name",
+            "required": true,
+            "half_width": true
+          }
+        },
+        "field_email": {
+          "type": "field_text",
+          "settings": {
+            "label": "Email",
+            "name_key": "email",
+            "placeholder": "Email*",
+            "input_type": "email",
+            "autocomplete": "email",
+            "required": true,
+            "half_width": false
+          }
+        },
+        "field_dial_code": {
+          "type": "field_select",
+          "settings": {
+            "label": "Dial Code",
+            "name_key": "Dial Code",
+            "dial_numbers": true,
+            "required": false,
+            "half_width": true
+          }
+        },
+        "field_phone": {
+          "type": "field_text",
+          "settings": {
+            "label": "Phone Number",
+            "name_key": "Phone Number",
+            "placeholder": "Phone Number",
+            "input_type": "tel",
+            "autocomplete": "phone-number",
+            "required": false,
+            "half_width": true
+          }
+        },
+        "field_company": {
+          "type": "field_text",
+          "settings": {
+            "label": "Company",
+            "name_key": "Company",
+            "placeholder": "Company",
+            "input_type": "text",
+            "autocomplete": "company",
+            "required": false,
+            "half_width": false
+          }
+        },
+        "field_reason": {
+          "type": "field_select",
+          "settings": {
+            "label": "Reason for contacting",
+            "name_key": "reason-for-contacting",
+            "dial_numbers": false,
+            "options": "General inquiry\nRequest a quote\nTechnical support\nOther",
+            "required": true,
+            "half_width": false
+          }
+        },
+        "field_message": {
+          "type": "field_textarea",
+          "settings": {
+            "label": "Message",
+            "name_key": "Message",
+            "placeholder": "Message*",
+            "rows": 5,
+            "required": true
+          }
+        },
+        "field_optin": {
+          "type": "field_checkbox",
+          "settings": {
+            "label": "Yes, I would like to receive e-mail newsletters, personalized offers, and other marketing information via email from PPG Industries Inc. and its subsidiaries about Industrial products. You may withdraw your consent at any time by clicking unsubscribe link in any of our subsequent communications. Please read our privacy statement for more information: https://privacy.ppg.com/en-US. By clicking submit below you consent to allow PPG Industrial Coatings to store and process the personal information submitted above to provide you with the content requested.",
+            "name_key": "Newsletter Opt-In",
+            "value_when_checked": "yes",
+            "required": false
+          }
+        },
+        "field_terms": {
+          "type": "field_terms",
+          "settings": {
+            "terms_text": "<p><a href='https://privacy.ppg.com/en-US'>By submitting this form, I acknowledge that I have read and understood Privacy Policy*</a></p>",
+            "name_key": "Terms Accepted",
+            "required": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "heading": "An existing customer?",
+            "text": "<p>Please contact your representative directly to assist with your specific needs.</p>",
+            "show_social": true
+          }
+        }
+      },
+      "block_order": [
+        "header",
+        "form",
+        "field_first_name",
+        "field_last_name",
+        "field_email",
+        "field_dial_code",
+        "field_phone",
+        "field_company",
+        "field_reason",
+        "field_message",
+        "field_optin",
+        "field_terms",
+        "footer"
+      ],
       "settings": {}
     }
   },
