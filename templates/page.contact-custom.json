@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -7,13 +16,36 @@
           "type": "header_columns",
           "settings": {
             "heading": "Contact Us",
+            "title_size": 34,
+            "title_color": "#0b5ea8",
             "text": "<p>Please visit our <a href='/faq'>FAQ page</a> before submitting an inquiry.</p>",
             "right_html": ""
           }
         },
         "form": {
           "type": "form",
-          "settings": {}
+          "settings": {
+            "heading": "",
+            "heading_size": 18,
+            "heading_color": "#111111",
+            "form_bg": "#ffffff",
+            "form_border": "#d9d9d9",
+            "form_radius": 0,
+            "form_padding": 18,
+            "margin_bottom": 22,
+            "label_color": "#333333",
+            "label_size": 12,
+            "input_bg": "#ffffff",
+            "input_text": "#111111",
+            "input_border": "#cfcfcf",
+            "input_radius": 2,
+            "button_label": "Submit",
+            "button_bg": "#0b5ea8",
+            "button_text": "#ffffff",
+            "button_radius": 2,
+            "success_message": "Thanks for contacting us. We'll get back to you as soon as possible.",
+            "form_note": "<p>We typically respond within 24 hours.</p>"
+          }
         },
         "field_first_name": {
           "type": "field_text",
@@ -21,7 +53,6 @@
             "group_label": "Name *",
             "label": "First name",
             "name_key": "First Name",
-            "placeholder": "First Name*",
             "input_type": "text",
             "autocomplete": "given-name",
             "required": true,
@@ -31,9 +62,9 @@
         "field_last_name": {
           "type": "field_text",
           "settings": {
+            "group_label": "",
             "label": "Last name",
             "name_key": "Last name",
-            "placeholder": "Last name*",
             "input_type": "text",
             "autocomplete": "family-name",
             "required": true,
@@ -43,9 +74,9 @@
         "field_email": {
           "type": "field_text",
           "settings": {
+            "group_label": "",
             "label": "Email",
             "name_key": "email",
-            "placeholder": "Email*",
             "input_type": "email",
             "autocomplete": "email",
             "required": true,
@@ -58,6 +89,7 @@
             "label": "Dial Code",
             "name_key": "Dial Code",
             "dial_numbers": true,
+            "options": "General inquiry\nRequest a quote\nTechnical support\nOther",
             "required": false,
             "half_width": true
           }
@@ -65,9 +97,9 @@
         "field_phone": {
           "type": "field_text",
           "settings": {
+            "group_label": "",
             "label": "Phone Number",
             "name_key": "Phone Number",
-            "placeholder": "Phone Number",
             "input_type": "tel",
             "autocomplete": "phone-number",
             "required": false,
@@ -77,9 +109,9 @@
         "field_company": {
           "type": "field_text",
           "settings": {
+            "group_label": "",
             "label": "Company",
             "name_key": "Company",
-            "placeholder": "Company",
             "input_type": "text",
             "autocomplete": "company",
             "required": false,
@@ -102,7 +134,6 @@
           "settings": {
             "label": "Message",
             "name_key": "Message",
-            "placeholder": "Message*",
             "rows": 5,
             "required": true
           }
@@ -119,7 +150,7 @@
         "field_terms": {
           "type": "field_terms",
           "settings": {
-            "terms_text": "<p><a href='https://privacy.ppg.com/en-US'>By submitting this form, I acknowledge that I have read and understood Privacy Policy*</a></p>",
+            "terms_text": "<p>By submitting this form, I acknowledge that I have read and understood <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Privacy Policy</a></p>",
             "name_key": "Terms Accepted",
             "required": true
           }
@@ -129,7 +160,12 @@
           "settings": {
             "heading": "An existing customer?",
             "text": "<p>Please contact your representative directly to assist with your specific needs.</p>",
-            "show_social": true
+            "show_social": true,
+            "footer_bg": "#ffffff",
+            "footer_text_color": "#0b5ea8",
+            "footer_text_size": 14,
+            "footer_radius": 0,
+            "footer_padding": 0
           }
         }
       },
@@ -148,8 +184,16 @@
         "field_terms",
         "footer"
       ],
-      "settings": {}
+      "settings": {
+        "container_max_width": 1100,
+        "padding_y": 32,
+        "padding_x": 16,
+        "section_bg": "#ffffff",
+        "section_text": "#111111"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
