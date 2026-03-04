@@ -1,0 +1,1164 @@
+{% comment %}
+  Contact Form Custom Section
+  - Blocks: Title, Banner, Description, Form, Footer
+  - "Nested" form fields are implemented as separate blocks (field_*),
+    rendered inside the Form block output.
+  - All labels/descriptions/comments are in English.
+{% endcomment %}
+
+
+{{ 'section-contact-form-custom.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-contact-form-custom.js' | asset_url }}"  ></script>
+
+{%- liquid
+  assign section_id = section.id
+  assign has_form_block = false
+
+  for b in section.blocks
+    if b.type == 'form'
+      assign has_form_block = true
+      break
+    endif
+  endfor
+-%}
+
+<section
+  class="cfc cfc--{{ section_id }}"
+  style="
+    --cfc-bg: {{ section.settings.section_bg }};
+    --cfc-text: {{ section.settings.section_text }};
+    --cfc-max: {{ section.settings.container_max_width }}px;
+    --cfc-pad-y: {{ section.settings.padding_y }}px;
+    --cfc-pad-x: {{ section.settings.padding_x }}px;
+  "
+>
+  <div class="cfc__container">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+
+        {%- when 'title' -%}
+          <header
+            class="cfc__title"
+            {{ block.shopify_attributes }}
+            style="
+              --cfc-title-color: {{ block.settings.title_color }};
+              --cfc-title-size: {{ block.settings.title_size }}px;
+              --cfc-title-align: {{ block.settings.title_align }};
+              --cfc-title-mb: {{ block.settings.margin_bottom }}px;
+            "
+          >
+            {%- if block.settings.heading != blank -%}
+              <h2 class="cfc__titleText">{{ block.settings.heading }}</h2>
+            {%- endif -%}
+          </header>
+
+        {%- when 'banner' -%}
+          <div
+            class="cfc__banner"
+            {{ block.shopify_attributes }}
+            style="
+              --cfc-banner-radius: {{ block.settings.banner_radius }}px;
+              --cfc-banner-mb: {{ block.settings.margin_bottom }}px;
+              --cfc-banner-overlay: {{ block.settings.overlay_color }};
+              --cfc-banner-overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};
+            "
+          >
+            {%- liquid
+              assign img_d = block.settings.image_desktop
+              assign img_m = block.settings.image_mobile
+              assign focal = block.settings.focal_point
+            -%}
+
+            <div class="cfc__bannerMedia">
+              <picture>
+                {%- if img_m != blank -%}
+                  <source
+                    media="(max-width: 990px)"
+                    srcset="{{ img_m | image_url: width: 1600 }}"
+                  >
+                {%- endif -%}
+
+                {%- if img_d != blank -%}
+                  <img
+                    class="cfc__bannerImg"
+                    src="{{ img_d | image_url: width: 2200 }}"
+                    alt="{{ block.settings.image_alt | escape }}"
+                    loading="lazy"
+                    style="object-position: {{ focal }};"
+                    width="{{ img_d.width }}"
+                    height="{{ img_d.height }}"
+                  >
+                {%- elsif img_m != blank -%}
+                  <img
+                    class="cfc__bannerImg"
+                    src="{{ img_m | image_url: width: 1600 }}"
+                    alt="{{ block.settings.image_alt | escape }}"
+                    loading="lazy"
+                    style="object-position: {{ focal }};"
+                  >
+                {%- endif -%}
+              </picture>
+
+              {%- if block.settings.show_overlay -%}
+                <div class="cfc__bannerOverlay" aria-hidden="true"></div>
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.banner_text != blank -%}
+              <div
+                class="cfc__bannerText"
+                style="
+                  --cfc-banner-text-color: {{ block.settings.banner_text_color }};
+                  --cfc-banner-text-size: {{ block.settings.banner_text_size }}px;
+                  --cfc-banner-text-align: {{ block.settings.banner_text_align }};
+                "
+              >
+                <div class="cfc__bannerTextInner">
+                  {{ block.settings.banner_text }}
+                </div>
+              </div>
+            {%- endif -%}
+          </div>
+
+        {%- when 'description' -%}
+          <div
+            class="cfc__description"
+            {{ block.shopify_attributes }}
+            style="
+              --cfc-desc-color: {{ block.settings.text_color }};
+              --cfc-desc-size: {{ block.settings.text_size }}px;
+              --cfc-desc-align: {{ block.settings.text_align }};
+              --cfc-desc-mb: {{ block.settings.margin_bottom }}px;
+            "
+          >
+            {%- if block.settings.text != blank -%}
+              <div class="cfc__rte">
+                {{ block.settings.text }}
+              </div>
+            {%- endif -%}
+          </div>
+
+        {%- when 'form' -%}
+          <div
+            class="cfc__formWrap"
+            id="cfc-form-{{ section_id }}"
+            {{ block.shopify_attributes }}
+            style="
+              --cfc-form-bg: {{ block.settings.form_bg }};
+              --cfc-form-border: {{ block.settings.form_border }};
+              --cfc-form-radius: {{ block.settings.form_radius }}px;
+              --cfc-form-pad: {{ block.settings.form_padding }}px;
+              --cfc-form-mb: {{ block.settings.margin_bottom }}px;
+
+              --cfc-label-color: {{ block.settings.label_color }};
+              --cfc-label-size: {{ block.settings.label_size }}px;
+
+              --cfc-input-bg: {{ block.settings.input_bg }};
+              --cfc-input-text: {{ block.settings.input_text }};
+              --cfc-input-border: {{ block.settings.input_border }};
+              --cfc-input-radius: {{ block.settings.input_radius }}px;
+
+              --cfc-btn-bg: {{ block.settings.button_bg }};
+              --cfc-btn-text: {{ block.settings.button_text }};
+              --cfc-btn-radius: {{ block.settings.button_radius }}px;
+            "
+          >
+            {%- if block.settings.heading != blank -%}
+              <h3
+                class="cfc__formHeading"
+                style="
+                  --cfc-form-heading-color: {{ block.settings.heading_color }};
+                  --cfc-form-heading-size: {{ block.settings.heading_size }}px;
+                "
+              >
+                {{ block.settings.heading }}
+              </h3>
+            {%- endif -%}
+
+            {% assign form_id = 'ContactForm-' | append: section_id %}
+            {%- form 'contact', id: form_id, class: 'cfc__form' -%}
+              {%- if form.posted_successfully? -%}
+                <div class="cfc__alert cfc__alert--success" role="status">
+                  {{ block.settings.success_message }}
+                </div>
+              {%- endif -%}
+
+              {%- if form.errors -%}
+                <div class="cfc__alert cfc__alert--error" role="alert">
+                  {{ form.errors | default_errors }}
+                </div>
+              {%- endif -%}
+
+              <div class="cfc__fields">
+                {%- comment %}
+                  Render all field_* blocks inside the form container.
+                {% endcomment -%}
+                {%- for field in section.blocks -%}
+                  {%- if field.type contains 'field_' -%}
+                    {%- case field.type -%}
+
+                      {%- when 'field_text' -%}
+                        {%- liquid
+                          assign fid = 'cfc-' | append: section_id | append: '-' | append: field.id
+                          assign name_key = field.settings.name_key | strip
+                          assign required = field.settings.required
+                          assign half = field.settings.half_width
+                          assign input_type = field.settings.input_type
+                          if input_type == blank
+                            assign input_type = 'text'
+                          endif
+                        -%}
+                        <div
+                          class="cfc__field cfc__field--text {% if half %}cfc__field--half{% endif %}"
+                          {{ field.shopify_attributes }}
+                        >
+                          {%- if field.settings.label != blank -%}
+                            <label class="cfc__label" for="{{ fid }}">
+                              {{ field.settings.label }}{% if required %}<span class="cfc__req">*</span>{% endif %}
+                            </label>
+                          {%- endif -%}
+
+                          <input
+                            id="{{ fid }}"
+                            class="cfc__input"
+                            type="{{ input_type }}"
+                            name="contact[{{ name_key | escape }}]"
+                            value="{% if input_type == 'email' %}{{ form.email }}{% endif %}"
+                            placeholder="{{ field.settings.placeholder | escape }}"
+                            autocomplete="{{ field.settings.autocomplete | escape }}"
+                            {% if required %}required{% endif %}
+                          >
+                        </div>
+
+                      {%- when 'field_select' -%}
+                        {%- liquid
+                          assign fid = 'cfc-' | append: section_id | append: '-' | append: field.id
+                          assign name_key = field.settings.name_key | strip
+                          assign required = field.settings.required
+                          assign half = field.settings.half_width
+                          assign dial_numbers = field.settings.dial_numbers
+                          assign options = field.settings.options | newline_to_br | split: '<br />'
+                        -%}
+                        <div
+                          class="cfc__field cfc__field--select {% if half %}cfc__field--half{% endif %}"
+                          {{ field.shopify_attributes }}
+                        >
+                          {%- if field.settings.label != blank -%}
+                            <label class="cfc__label" for="{{ fid }}">
+                              {{ field.settings.label }}{% if required %}<span class="cfc__req">*</span>{% endif %}
+                            </label>
+                          {%- endif -%}
+
+                          <div class="cfc__selectWrap">
+                            <select
+                              id="{{ fid }}"
+                              class="cfc__select"
+                              name="contact[{{ name_key | escape }}]"
+                              {% if required %}required{% endif %}
+                            >
+                            {% if dial_numbers %}
+                             {% render 'dial_codes' %}
+                            {% else %}
+                            {%- for opt in options -%}
+                              {%- assign clean = opt | strip -%}
+                              {%- if clean != blank -%}
+                                <option value="{{ clean | escape }}">{{ clean }}</option>
+                              {%- endif -%}
+                            {%- endfor -%}
+                            {% endif %}
+                            </select>
+                            <span class="cfc__selectIcon" aria-hidden="true"></span>
+                          </div>
+                        </div>
+
+                      {%- when 'field_textarea' -%}
+                        {%- liquid
+                          assign fid = 'cfc-' | append: section_id | append: '-' | append: field.id
+                          assign name_key = field.settings.name_key | strip
+                          assign required = field.settings.required
+                        -%}
+                        <div class="cfc__field cfc__field--textarea" {{ field.shopify_attributes }}>
+                          {%- if field.settings.label != blank -%}
+                            <label class="cfc__label" for="{{ fid }}">
+                              {{ field.settings.label }}{% if required %}<span class="cfc__req">*</span>{% endif %}
+                            </label>
+                          {%- endif -%}
+
+                          <textarea
+                            id="{{ fid }}"
+                            class="cfc__textarea"
+                            name="contact[{{ name_key | escape }}]"
+                            placeholder="{{ field.settings.placeholder | escape }}"
+                            rows="{{ field.settings.rows }}"
+                            {% if required %}required{% endif %}
+                          ></textarea>
+                        </div>
+
+                      {%- when 'field_checkbox' -%}
+                        {%- liquid
+                          assign fid = 'cfc-' | append: section_id | append: '-' | append: field.id
+                          assign name_key = field.settings.name_key | strip
+                          assign required = field.settings.required
+                        -%}
+                        <div class="cfc__field cfc__field--checkbox" {{ field.shopify_attributes }}>
+                          <label class="cfc__checkRow" for="{{ fid }}">
+                            <input
+                              id="{{ fid }}"
+                              class="cfc__checkbox"
+                              type="checkbox"
+                              name="contact[{{ name_key | escape }}]"
+                              value="{{ field.settings.value_when_checked | escape }}"
+                              {% if required %}required{% endif %}
+                            >
+                            <span class="cfc__checkText">
+                              {{ field.settings.label }}
+                              {% if required %}<span class="cfc__req">*</span>{% endif %}
+                            </span>
+                          </label>
+
+                          {%- if field.settings.help_text != blank -%}
+                            <div class="cfc__help">{{ field.settings.help_text }}</div>
+                          {%- endif -%}
+                        </div>
+
+                      {%- when 'field_terms' -%}
+                        {%- liquid
+                          assign fid = 'cfc-' | append: section_id | append: '-' | append: field.id
+                          assign required = field.settings.required
+                          assign name_key = field.settings.name_key | strip
+                        -%}
+                        <div class="cfc__field cfc__field--terms" {{ field.shopify_attributes }}>
+                          <label class="cfc__checkRow" for="{{ fid }}">
+                            <input
+                              id="{{ fid }}"
+                              class="cfc__checkbox"
+                              type="checkbox"
+                              name="contact[{{ name_key | escape }}]"
+                              value="accepted"
+                              {% if required %}required{% endif %}
+                            >
+                            <span class="cfc__checkText">
+                              {{ field.settings.terms_text }}
+                              {% if required %}<span class="cfc__req">*</span>{% endif %}
+                            </span>
+                          </label>
+                        </div>
+
+                    {%- endcase -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+
+              <div class="cfc__actions">
+                <button type="submit" class="cfc__button">
+                  {{ block.settings.button_label }}
+                </button>
+              </div>
+
+              {%- if block.settings.form_note != blank -%}
+                <div class="cfc__note">
+                  {{ block.settings.form_note }}
+                </div>
+              {%- endif -%}
+            {%- endform -%}
+
+            {%- unless has_form_block -%}
+              <div class="cfc__alert cfc__alert--error" role="alert">
+                Add a "Form" block to render fields.
+              </div>
+            {%- endunless -%}
+          </div>
+
+        {%- when 'footer' -%}
+          <footer
+            class="cfc__footer"
+            {{ block.shopify_attributes }}
+            style="
+              --cfc-footer-bg: {{ block.settings.footer_bg }};
+              --cfc-footer-text: {{ block.settings.footer_text_color }};
+              --cfc-footer-size: {{ block.settings.footer_text_size }}px;
+              --cfc-footer-radius: {{ block.settings.footer_radius }}px;
+              --cfc-footer-pad: {{ block.settings.footer_padding }}px;
+            "
+          >
+            {%- if block.settings.heading != blank -%}
+              <h4 class="cfc__footerHeading">{{ block.settings.heading }}</h4>
+            {%- endif -%}
+
+            {%- if block.settings.text != blank -%}
+              <div class="cfc__footerText">
+                {{ block.settings.text }}
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.show_social -%}
+             <h4>Share your projects with us on social media!</h4>
+             <div style="text-align: left;" bis_skin_checked="1">
+             <span style="color: #bcbcbc;"><img alt="LinkedIn" src="https://cdn.shopify.com/s/files/1/0538/8910/6070/files/MicrosoftTeams-image_37_32x32.png?v=1631102168">&nbsp;<a title="LinkedIn PPG Industrial Coatings" href="https://www.linkedin.com/company/ppg-industrial-coatings/" target="_blank">LinkedIn</a>&nbsp; &nbsp; &nbsp; &nbsp;</span>&nbsp;<img alt="YouTube" src="https://cdn.shopify.com/s/files/1/0538/8910/6070/files/yt_icon_rgb_32x32.png?v=1631102195">&nbsp;<a title="YouTube PPG Industrial Coatings" href="https://www.youtube.com/c/PPGIndustrialCoatings" target="_blank">YouTube<br></a>
+             </div>
+             <div style="text-align: left;" bis_skin_checked="1"><br></div>
+             <h2 style="text-align: left;">
+             <span style="color: #000000;"><span style="color: #0078a9;"></span></span><br>
+             </h2>
+            {%- endif -%}
+          </footer>
+
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+<script defer>
+ document.addEventListener('DOMContentLoaded', () => {
+   new NewsletterOptInFromContact({
+     formSelector: '#{{ form_id }}',
+     endpoint: '//webapp-powdershopifybackend-prd.azurewebsites.net/api/customers/from-contact'
+   });
+ });
+</script>
+
+{% schema %}
+{
+  "name": "Contact Form (Custom)",
+  "tag": "section",
+  "class": "section-contact-form-custom",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_max_width",
+      "min": 720,
+      "max": 1400,
+      "step": 10,
+      "unit": "px",
+      "default": 1100,
+      "label": "Container max width"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 32,
+      "label": "Section vertical padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_x",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 16,
+      "label": "Section horizontal padding"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "default": "#ffffff",
+      "label": "Section background"
+    },
+    {
+      "type": "color",
+      "id": "section_text",
+      "default": "#111111",
+      "label": "Section text color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Contact Us",
+          "label": "Heading"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "min": 18,
+          "max": 64,
+          "step": 1,
+          "unit": "px",
+          "default": 34,
+          "label": "Heading font size"
+        },
+        {
+          "type": "select",
+          "id": "title_align",
+          "label": "Text alignment",
+          "default": "left",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "default": "#0b5ea8",
+          "label": "Heading color"
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 60,
+          "step": 2,
+          "unit": "px",
+          "default": 16,
+          "label": "Bottom spacing"
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "name": "Banner",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Desktop image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "default": "Contact banner",
+          "label": "Image alt text"
+        },
+        {
+          "type": "select",
+          "id": "focal_point",
+          "label": "Image focal point",
+          "default": "center center",
+          "options": [
+            { "value": "left top", "label": "Left top" },
+            { "value": "center top", "label": "Center top" },
+            { "value": "right top", "label": "Right top" },
+            { "value": "left center", "label": "Left center" },
+            { "value": "center center", "label": "Center center" },
+            { "value": "right center", "label": "Right center" },
+            { "value": "left bottom", "label": "Left bottom" },
+            { "value": "center bottom", "label": "Center bottom" },
+            { "value": "right bottom", "label": "Right bottom" }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "default": true,
+          "label": "Enable overlay"
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "default": "#0b1c2c",
+          "label": "Overlay color"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "min": 0,
+          "max": 80,
+          "step": 1,
+          "unit": "%",
+          "default": 60,
+          "label": "Overlay opacity"
+        },
+        {
+          "type": "richtext",
+          "id": "banner_text",
+          "label": "Banner text (optional)",
+          "default": "<p><strong>CONTACT<br>US</strong></p>"
+        },
+        {
+          "type": "color",
+          "id": "banner_text_color",
+          "default": "#ffffff",
+          "label": "Banner text color"
+        },
+        {
+          "type": "range",
+          "id": "banner_text_size",
+          "min": 14,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "default": 52,
+          "label": "Banner text size"
+        },
+        {
+          "type": "select",
+          "id": "banner_text_align",
+          "label": "Banner text alignment",
+          "default": "right",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "banner_radius",
+          "min": 0,
+          "max": 32,
+          "step": 1,
+          "unit": "px",
+          "default": 0,
+          "label": "Banner border radius"
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 60,
+          "step": 2,
+          "unit": "px",
+          "default": 18,
+          "label": "Bottom spacing"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Contact us today for more information on specific products or for questions regarding a custom quote. You can expect a response within 24 hours.</p>"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "min": 12,
+          "max": 26,
+          "step": 1,
+          "unit": "px",
+          "default": 14,
+          "label": "Text size"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text alignment",
+          "default": "left",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "default": "#333333",
+          "label": "Text color"
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 60,
+          "step": 2,
+          "unit": "px",
+          "default": 18,
+          "label": "Bottom spacing"
+        }
+      ]
+    },
+    {
+      "type": "form",
+      "name": "Form",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Form heading (optional)"
+        },
+        {
+          "type": "range",
+          "id": "heading_size",
+          "min": 14,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "default": 18,
+          "label": "Heading size"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "default": "#111111",
+          "label": "Heading color"
+        },
+        {
+          "type": "header",
+          "content": "Container"
+        },
+        {
+          "type": "color",
+          "id": "form_bg",
+          "default": "#ffffff",
+          "label": "Form background"
+        },
+        {
+          "type": "color",
+          "id": "form_border",
+          "default": "#d9d9d9",
+          "label": "Form border color"
+        },
+        {
+          "type": "range",
+          "id": "form_radius",
+          "min": 0,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "default": 0,
+          "label": "Form border radius"
+        },
+        {
+          "type": "range",
+          "id": "form_padding",
+          "min": 0,
+          "max": 48,
+          "step": 2,
+          "unit": "px",
+          "default": 18,
+          "label": "Form padding"
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 60,
+          "step": 2,
+          "unit": "px",
+          "default": 22,
+          "label": "Bottom spacing"
+        },
+        {
+          "type": "header",
+          "content": "Labels"
+        },
+        {
+          "type": "color",
+          "id": "label_color",
+          "default": "#333333",
+          "label": "Label color"
+        },
+        {
+          "type": "range",
+          "id": "label_size",
+          "min": 11,
+          "max": 18,
+          "step": 1,
+          "unit": "px",
+          "default": 12,
+          "label": "Label size"
+        },
+        {
+          "type": "header",
+          "content": "Inputs"
+        },
+        {
+          "type": "color",
+          "id": "input_bg",
+          "default": "#ffffff",
+          "label": "Input background"
+        },
+        {
+          "type": "color",
+          "id": "input_text",
+          "default": "#111111",
+          "label": "Input text color"
+        },
+        {
+          "type": "color",
+          "id": "input_border",
+          "default": "#cfcfcf",
+          "label": "Input border color"
+        },
+        {
+          "type": "range",
+          "id": "input_radius",
+          "min": 0,
+          "max": 16,
+          "step": 1,
+          "unit": "px",
+          "default": 2,
+          "label": "Input border radius"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Submit",
+          "label": "Button label"
+        },
+        {
+          "type": "color",
+          "id": "button_bg",
+          "default": "#0b5ea8",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text",
+          "default": "#ffffff",
+          "label": "Button text color"
+        },
+        {
+          "type": "range",
+          "id": "button_radius",
+          "min": 0,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "default": 2,
+          "label": "Button border radius"
+        },
+        {
+          "type": "header",
+          "content": "Messages"
+        },
+        {
+          "type": "text",
+          "id": "success_message",
+          "default": "Thanks for contacting us. We'll get back to you as soon as possible.",
+          "label": "Success message"
+        },
+        {
+          "type": "richtext",
+          "id": "form_note",
+          "default": "<p>We typically respond within 24 hours.</p>",
+          "label": "Form note (optional)"
+        }
+      ]
+    },
+
+    {
+      "type": "field_text",
+      "name": "Field: Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "default": "First name",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "name_key",
+          "default": "First Name",
+          "label": "Contact field key",
+          "info": "This becomes contact[Your Key] in the submission payload."
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "default": "First Name*",
+          "label": "Placeholder"
+        },
+        {
+          "type": "select",
+          "id": "input_type",
+          "label": "Input type",
+          "default": "text",
+          "options": [
+            { "value": "text", "label": "Text" },
+            { "value": "email", "label": "Email" },
+            { "value": "tel", "label": "Phone" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "autocomplete",
+          "default": "given-name",
+          "label": "Autocomplete attribute",
+          "info": "Examples: given-name, family-name, email, tel."
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "default": true,
+          "label": "Required"
+        },
+        {
+          "type": "checkbox",
+          "id": "half_width",
+          "default": true,
+          "label": "Half width on desktop"
+        }
+      ]
+    },
+    {
+      "type": "field_select",
+      "name": "Field: Select",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Reason for contacting",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "name_key",
+          "default": "Reason For Contacting",
+          "label": "Contact field key",
+          "info": "This becomes contact[Your Key] in the submission payload."
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "default": "Reason For Contacting*",
+          "label": "Placeholder"
+        },
+        {
+         "type": "checkbox",
+         "id": "dial_numbers",
+         "label": "Dial Numbers?",
+         "default": false
+        },
+        {
+          "type": "textarea",
+          "id": "options",
+          "default": "General inquiry\nRequest a quote\nTechnical support\nOther",
+          "label": "Options (one per line)",
+          "visible_if": "{{ block.settings.dial_numbers == false }}"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "default": true,
+          "label": "Required"
+        },
+        {
+          "type": "checkbox",
+          "id": "half_width",
+          "default": false,
+          "label": "Half width on desktop"
+        }
+      ]
+    },
+    {
+      "type": "field_textarea",
+      "name": "Field: Textarea",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Message",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "name_key",
+          "default": "Message",
+          "label": "Contact field key",
+          "info": "This becomes contact[Your Key] in the submission payload."
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "default": "Message*",
+          "label": "Placeholder"
+        },
+        {
+          "type": "range",
+          "id": "rows",
+          "min": 3,
+          "max": 12,
+          "step": 1,
+          "default": 5,
+          "label": "Rows"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "default": true,
+          "label": "Required"
+        }
+      ]
+    },
+    {
+      "type": "field_checkbox",
+      "name": "Field: Checkbox",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Yes, I would like to receive email newsletters and offers.",
+          "label": "Checkbox label"
+        },
+        {
+          "type": "text",
+          "id": "name_key",
+          "default": "Marketing Opt-In",
+          "label": "Contact field key",
+          "info": "This becomes contact[Your Key] in the submission payload."
+        },
+        {
+          "type": "text",
+          "id": "value_when_checked",
+          "default": "yes",
+          "label": "Value when checked"
+        },
+        {
+          "type": "richtext",
+          "id": "help_text",
+          "default": "<p>You can unsubscribe at any time.</p>",
+          "label": "Help text (optional)"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "default": false,
+          "label": "Required"
+        }
+      ]
+    },
+    {
+      "type": "field_terms",
+      "name": "Field: Terms & Conditions",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "terms_text",
+          "default": "<p>By submitting this form, I acknowledge that I have read and understood the privacy statement.</p>",
+          "label": "Terms text"
+        },
+        {
+          "type": "text",
+          "id": "name_key",
+          "default": "Terms Accepted",
+          "label": "Contact field key",
+          "info": "This becomes contact[Your Key] in the submission payload."
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "default": true,
+          "label": "Required"
+        }
+      ]
+    },
+
+    {
+      "type": "footer",
+      "name": "Footer",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "An existing customer?",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Please contact your representative directly to assist with your specific needs.</p>",
+          "label": "Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_social",
+          "default": true,
+          "label": "Show social links (uses theme social settings)"
+        },
+        {
+          "type": "header",
+          "content": "Style"
+        },
+        {
+          "type": "color",
+          "id": "footer_bg",
+          "default": "#ffffff",
+          "label": "Footer background"
+        },
+        {
+          "type": "color",
+          "id": "footer_text_color",
+          "default": "#0b5ea8",
+          "label": "Footer text color"
+        },
+        {
+          "type": "range",
+          "id": "footer_text_size",
+          "min": 12,
+          "max": 22,
+          "step": 1,
+          "unit": "px",
+          "default": 14,
+          "label": "Footer text size"
+        },
+        {
+          "type": "range",
+          "id": "footer_radius",
+          "min": 0,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "default": 0,
+          "label": "Footer border radius"
+        },
+        {
+          "type": "range",
+          "id": "footer_padding",
+          "min": 0,
+          "max": 48,
+          "step": 2,
+          "unit": "px",
+          "default": 0,
+          "label": "Footer padding"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Form (Custom)",
+      "blocks": [
+        { "type": "title" },
+        { "type": "banner" },
+        { "type": "description" },
+        { "type": "form" },
+        { "type": "field_text" },
+        { "type": "field_text" },
+        { "type": "field_text" },
+        { "type": "field_text" },
+        { "type": "field_select" },
+        { "type": "field_textarea" },
+        { "type": "field_checkbox" },
+        { "type": "field_terms" },
+        { "type": "footer" }
+      ]
+    }
+  ]
+}
+{% endschema %}
