@@ -18,7 +18,7 @@
             "heading": "Contact Us",
             "title_size": 34,
             "title_color": "#0b5ea8",
-            "text": "<p>Please visit our <a href='/faq'>FAQ page</a> before submitting an inquiry.</p>",
+            "text": "<p>Please visit our <a href=\"/faq\">FAQ page</a> before submitting an inquiry.</p>",
             "right_html": ""
           }
         },
@@ -40,11 +40,11 @@
             "input_border": "#cfcfcf",
             "input_radius": 2,
             "button_label": "Submit",
-            "button_bg": "#0b5ea8",
+            "button_bg": "#111111",
             "button_text": "#ffffff",
             "button_radius": 2,
             "success_message": "Thanks for contacting us. We'll get back to you as soon as possible.",
-            "form_note": "<p>We typically respond within 24 hours.</p>"
+            "form_note": ""
           }
         },
         "field_first_name": {
