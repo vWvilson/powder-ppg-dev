@@ -16,9 +16,9 @@ form{
 
 /* Title */
 .cfc__title {
-  margin-bottom: var(--cfc-title-mb);
+  margin-bottom: 25px;
   text-align: var(--cfc-title-align);
-  
+
 }
 
 .cfc__titleText {
