@@ -1,1 +1,35 @@
-{"sections":{"defualt-page-image-header":{"type":"defualt-page-image-header","settings":{}},"breadcrumb":{"type":"breadcrumb","settings":{}},"main":{"type":"main-page","settings":{}}},"order":["defualt-page-image-header","breadcrumb","main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "defualt-page-image-header": {
+      "type": "defualt-page-image-header",
+      "settings": {
+        "image": "shopify://shop_images/image_16.jpg",
+        "title": "Our Process",
+        "height": 400,
+        "title_size": 72
+      }
+    },
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    }
+  },
+  "order": [
+    "defualt-page-image-header",
+    "breadcrumb",
+    "main"
+  ]
+}
