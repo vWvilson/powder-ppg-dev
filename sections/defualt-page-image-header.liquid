@@ -17,6 +17,7 @@
     inset: 0;
     width: 50%;
     height: 100%;
+    left:50%;
     background-color: #2A2E37;
     display: flex;
     align-items: center;
@@ -41,7 +42,7 @@
   }
 {%- endstyle -%}
 
-<div class="page-header" data-section-id="{{ section.id }}">
+<div class="page-header{% if section.settings.section_width == 'page' %} container{% endif %}" data-section-id="{{ section.id }}">
   {%- if section.settings.image != blank -%}
     <img
       class="page-header__bg"
@@ -71,6 +72,16 @@
   "tag": "section",
   "class": "section-page-image-header",
   "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        { "value": "full", "label": "Full Width" },
+        { "value": "page", "label": "Page Width" }
+      ],
+      "default": "full"
+    },
     {
       "type": "image_picker",
       "id": "image",
