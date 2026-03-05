@@ -143,7 +143,7 @@
 .header-container.type2 .search-area {
     margin-left: 0;
     margin-right: 0;
-
+    width: 100%;
 }
 
 @media (max-width:575px) {
