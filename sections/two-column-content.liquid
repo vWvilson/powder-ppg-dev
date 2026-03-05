@@ -18,12 +18,7 @@
     flex-direction: column;
     gap: 1.25rem;
   }
-  .two-column-content__column--left {
-    background-color: {{ section.settings.left_column_bg }};
-  }
-  .two-column-content__column--right {
-    background-color: {{ section.settings.right_column_bg }};
-  }
+
   .two-column-content__headline {
     margin: 0;
     font-size: clamp(28px, 4vw, 48px);
@@ -191,18 +186,7 @@
         "label": "Background color",
         "default": "#ffffff"
       },
-      {
-        "type": "color",
-        "id": "left_column_bg",
-        "label": "Left column background",
-        "default": "#ffffff"
-      },
-      {
-        "type": "color",
-        "id": "right_column_bg",
-        "label": "Right column background",
-        "default": "#ffffff"
-      },
+
       {
         "type": "text",
         "id": "section_padding",
