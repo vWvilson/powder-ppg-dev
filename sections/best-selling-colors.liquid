@@ -14,6 +14,18 @@
     gap: 40px;
     margin:40px 0;
 }
+  @media (max-width: 991px) {
+  .best-selling__title__pills {
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+
+}
+  }
+  @media (max-width: 639px) {
+
+  }
+
   .best-selling-colors__header {
     text-align: {{ section.settings.text_alignment }};
     max-width: 720px;
@@ -38,6 +50,23 @@
     border: 1px solid #BCBCBC;
     padding: 6px 30px;
   }
+
+   @media (max-width: 991px) {
+    .best-selling-colors__pills {
+      justify-content: center;
+      padding: 20px;
+      gap: 8px;
+    
+    }
+  }
+
+  @media (max-width: 639px) {
+    .best-selling-colors__pills {
+      border: none;
+      padding: 10px;
+    }
+  }
+
   .best-selling-colors__pill {
     position: relative;
     border: 1px solid transparent;
@@ -53,6 +82,15 @@
     , color 0.3s ease
     , border-color 0.3s ease;
   }
+  @media (max-width: 991px) {
+    .best-selling-colors__pill {
+      padding: 0 15px;
+      font-size: 0.75rem;
+      border: 1px solid {{ section.settings.pill_border_color }};
+
+    }
+  } 
+
 
   .best-selling-colors__pill.is-active {
     background-color: {{ section.settings.pill_active_background }};
